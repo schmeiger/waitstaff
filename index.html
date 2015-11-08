@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="waitstaff">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name=“viewport” content=“width=device-width, initial-scale=1.0, maximum-scale=1.0”>	
+	<meta name="format-detection" content="telephone=no">
+	
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	
+	<title>Waitstaff</title>
+
+	<link rel="shortcut icon" href="">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body ng-controller="waitstaffCtrl">
+
+	<div class="wrapper">
+		
+		<h1>Waitstaff Calculator</h1>
+
+		<div class="flexi">
+			<section class="flexi-row">
+				<div class="box-wrapper">
+					<h2>Enter the Meal Details</h2>
+
+					<form name="mealDetails" novalidation ng-submit="submitMealDetails()">
+						<p>
+							<label for="base-price">Base Meal Price: $</label>
+							<input type="number" ng-minlength="1" name="basePrice" id="base-price" required ng-model="form.basePrice">
+						</p>
+						<p>
+							<label for="tax-rate">Tax Rate: %</label>
+							<input type="number" ng-minlength="1" name="taxRate" id="tax-rate" required ng-model="form.taxRate"> 
+						</p>
+						
+						<p>
+							<label for="tip-percantage">Tip Percentage: %</label>
+							<input type="number" ng-minlength="1" name="tipPercentage" id="tip-percantage" required ng-model="form.tipPercentage">
+						</p>
+						
+						<p>
+							<input type="submit" name="submit-mealDetails" value="Submit">
+							<input type="reset" name="reset-mealDetails" value="Cancel">
+						</p>
+
+					</form>
+				</div>
+			</section>
+
+			<section class="flexi-row">
+				<div class="box-wrapper">
+					<h2>Customer Charges</h2>
+					
+					<p>Subtotal <span>{{subtotal}}</span></p>
+					<p>Tip <span>{{tip}}</span></p>
+
+					<p class="total">Total <span>{{customerTotal}}</span></p>
+				</div>
+
+				<div class="box-wrapper">
+					<h2>My Earnings Info</h2>
+					
+					<p>Tip total <span>{{tipTotal}}</span></p>
+					<p>Meal Count <span>{{mealCount}}</span></p>
+
+					<p class="total">Average Tip per Meal <span>{{avrTip}}</span></p>
+				</div>
+
+			</section>
+		</div>
+		<button ng-click="resetData()">Reset</button>
+	</div>
+	
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/script.js"></script>
+	
+</body>
+</html>
